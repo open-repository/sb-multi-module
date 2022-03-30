@@ -20,5 +20,6 @@
         <module>library</module>
         <module>publisher-author-maintenance</module>
         <module>publisher-author-search</module>
+        <module>publisher-book</module>
     </modules>
 </project>

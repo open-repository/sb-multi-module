@@ -21,7 +21,7 @@ public class SearchController {
     }
 
     @GetMapping("/isbn/{isbn}")
-    public ResponseEntity<List<Author>> addAuthor(@PathVariable long isbn){
+    public ResponseEntity<List<Author>> findByISBN(@PathVariable long isbn){
         List<Author> authorList = authorRepository.findAllByISBN(isbn);
         if(authorList.isEmpty())
             return new ResponseEntity<List<Author>>(HttpStatus.NO_CONTENT);
@@ -30,7 +30,7 @@ public class SearchController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Author>> addAuthor(){
+    public ResponseEntity<List<Author>> findAll(){
         List<Author> authorList = authorRepository.findAll();
         if(authorList.isEmpty())
             return new ResponseEntity<List<Author>>(HttpStatus.NO_CONTENT);
