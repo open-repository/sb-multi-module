@@ -4,7 +4,7 @@ spring:
   application:
     name: author
   datasource:
-    url: jdbc:mysql://192.168.64.130:3306/publisher
+    url: jdbc:mysql://rhelone.ps.com:3306/publisher
     username: ocp_spring
     password: pa55
   jpa:
