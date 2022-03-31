@@ -1,0 +1,76 @@
+---
+#Defult Profile Standalone Server
+spring:
+  application:
+    name: discovery-server
+  config:
+    activate:
+      on-profile: default
+server:
+  port: 10001
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://pszen.ps.com:10001/eureka/
+  instance:
+    hostname: pszen.ps.com
+
+---
+#HA Discovery Server in Cluster Mode 3 With 3 servers
+spring:
+  application:
+    name: discovery-server-ha
+  config:
+    activate:
+      on-profile: ha-1
+server:
+  port: 10001
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://ha2.pszen.ps.com:10002/eureka/,http://ha3.pszen.ps.com:10003/eureka/
+  instance:
+    hostname: ha1.pszen.ps.com
+
+
+---
+#HA Discovery Server in Cluster Mode 3 With 3 servers
+spring:
+  application:
+    name: discovery-server-ha
+  config:
+    activate:
+      on-profile: ha-2
+server:
+  port: 10002
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://ha1.pszen.ps.com:10001/eureka/,http://ha3.pszen.ps.com:10003/eureka/
+  instance:
+    hostname: ha2.pszen.ps.com
+
+---
+#HA Discovery Server in Cluster Mode 3 With 3 servers
+spring:
+  application:
+    name: discovery-server-ha
+  config:
+    activate:
+      on-profile: ha-3
+server:
+  port: 10003
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://ha1.pszen.ps.com:10001/eureka/,http://ha2.pszen.ps.com:10002/eureka/
+  instance:
+    hostname: ha3.pszen.ps.com

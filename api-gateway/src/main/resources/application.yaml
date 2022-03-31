@@ -1,0 +1,40 @@
+---
+#Yaml
+
+
+server:
+  port: 10020
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+        - id: book
+          uri: lb://book
+          predicates:
+            - Path=/book/**
+        - id: author
+          uri: lb://author
+          predicates:
+            - Path=/author/**
+#     discovery:
+#       locator:
+#         enabled: true
+
+
+eureka:
+  client:
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://pszen.ps.com:10001/eureka
+  instance:
+    hostname: pszen.ps.com
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG

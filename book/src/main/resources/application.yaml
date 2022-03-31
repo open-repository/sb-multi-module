@@ -1,0 +1,29 @@
+server:
+  port: 0
+spring:
+  application:
+    name: book
+  datasource:
+    url: jdbc:mysql://192.168.64.130:3306/publisher
+    username: ocp_spring
+    password: pa55
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+eureka:
+  client:
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://pszen.ps.com:10001/eureka
+  instance:
+    hostname: pszen.ps.com
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${random.value}
+
+
