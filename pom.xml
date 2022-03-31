@@ -16,6 +16,13 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+    <modules>
+        <module>library</module>
+        <module>api-gateway</module>
+        <module>discovery-server</module>
+        <module>author</module>
+        <module>book</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
