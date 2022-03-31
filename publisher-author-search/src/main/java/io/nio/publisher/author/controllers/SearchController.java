@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/author")
+@RequestMapping("/author/search")
 public class SearchController {
+
 
     private AuthorRepository authorRepository;
 
@@ -22,6 +23,8 @@ public class SearchController {
 
     @GetMapping("/isbn/{isbn}")
     public ResponseEntity<List<Author>> findByISBN(@PathVariable long isbn){
+
+        System.out.println("Searching for isbn .... "+isbn);
         List<Author> authorList = authorRepository.findAllByISBN(isbn);
         if(authorList.isEmpty())
             return new ResponseEntity<List<Author>>(HttpStatus.NO_CONTENT);
