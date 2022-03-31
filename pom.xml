@@ -13,6 +13,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>sb-multi-module</name>
     <description>sb-multi-module</description>
+    <packaging>pom</packaging>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
